@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-image: url("/img/pexels-irina-iriser-1366957.jpg");
+            justify-content: center;
+            align-items: center;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 100vh;
+            margin: 5px;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #a1c4fd, #c2e9fb);
+        }
+
+        .heading {
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            font-weight: 100;
+            font-size: 2em;
+            color: beige;
+            align-items: center;
+            text-align: center;
+        }
+
+        .navbar {
+            display: flex;
+            text-align: center;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        .left img {
+            margin: 10px;
+            height: 150px;
+            width: 150px;
+            border: solid;
+            border-radius: 35px;
+
+        }
+
+        .right {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .right li {
+            justify-content: space-around;
+            list-style: none;
+            color: white;
+            text-decoration: none;
+        }
+
+        .right li a {
+            margin: 10px;
+            color: white;
+            list-style: none;
+            text-decoration: none;
+        }
+
+        .Serach-button {
+            border: solid white 5px;
+            border-radius: 10px;
+        }
+
+        .first-section {
+            display: flex;
+            padding: 10px;
+            margin: 10px;
+
+        }
+
+        .left-div {
+            color: wheat;
+            border: solid 10px;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 10px;
+
+        }
+
+        .right-div {
+            color: wheat;
+            padding: 10px;
+            border: solid 10px;
+            border-radius: 10px;
+            margin: 10px;
+
+        }
+
+        .second-section {
+            justify-content: space-between;
+            display: flex;
+            width: 100%;
+            margin: 5px;
+
+
+        }
+
+        .left-mid-div {
+            margin: 10px;
+            height: 50%;
+            width: 50%;
+        }
+
+        .left-mid-div img {
+            width: 95%;
+            margin: 10px;
+            border: solid;
+            border-radius: 35px;
+
+        }
+
+        .right-mid-div {
+            margin: 10px;
+            height: 50%;
+            width: 50%;
+        }
+
+        .right-mid-div img {
+            width: 95%;
+            margin: 10px;
+            border: solid;
+            border-radius: 35px;
+
+        }
+
+        .transparent-box {
+            background: rgba(255, 255, 255, 0.7);
+            /* Adjust the last value (0.7) for transparency */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            /* Box shadow for a subtle effect */
+        }
+
+        /* Add these styles to the existing styles in your <style> section */
+
+        /* Third Section (Features or Highlights) */
+        .third-section {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px;
+            margin: 25px;
+        }
+
+        .feature {
+            text-align: center;
+            padding: 15px;
+            border: solid 2px wheat;
+            border-radius: 10px;
+            width: 30%;
+        }
+
+        /* Fourth Section (Gallery) */
+        .fourth-section {
+            text-align: center;
+            padding: 20px;
+            margin: 20px;
+        }
+
+        .gallery img {
+            width: 30%;
+            margin: 10px;
+            border: solid 2px wheat;
+            border-radius: 10px;
+        }
+
+        /* Fifth Section (Testimonials) */
+        .fifth-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            margin: 20px;
+        }
+
+        .testimonial {
+            text-align: center;
+            padding: 15px;
+            border: solid 2px wheat;
+            border-radius: 10px;
+            width: 60%;
+            margin-bottom: 20px;
+        }
+
+        .testimonial span {
+            display: block;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+
+        .last-section {
+            background-image: url("/pexels-irina-iriser-1366957.jpg");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+        }
+
+        .last-left-section {
+            margin: 10px;
+            width: 50%;
+            height: 50vh;
+            background-color: white;
+            border: solid white 10px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.15)
+        }
+
+        .last-right-section {
+            margin: 10px;
+            width: 50%;
+            height: 50vh;
+            background-color: white;
+            border: solid white 10px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.15)
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .button-contact {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 5px;
+            text-decoration: none;
+            background-color: #fff;
+            color: #333;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .button-subscribe {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 5px;
+            text-decoration: none;
+            background-color: #ff0909;
+            color: #333;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .login-div-btn {
+            color: #fff;
+        }
+
+        .login-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 5px;
+            text-decoration: none;
+            background-color: #ff0909;
+            color: #ffffff;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            border: solid bisque 5px;
+
+        }
+
+        .login-btn :hover {
+            border: solid white 5px;
+
+        }
+
+        input[type=text],
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-top: 6px;
+            margin-bottom: 16px;
+            resize: vertical
+        }
+
+        /* Style the submit button with a specific background color etc */
+        input[type=submit] {
+            background-color: #04AA6D;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        /* When moving the mouse over the submit button, add a darker green color */
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+
+        /* Add a background color and some padding around the form */
+        .contact {
+            justify-content: center;
+            align-items: center;
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            padding: 20px;
+            width: 50%;
+            margin-left: 12em;
+            margin:5px 50px;
+        }
+
+        .button-submit {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-left: 12em;
+            margin: 5px;
+            text-decoration: none;
+            background-color: #c7b0b0;
+            color: #ffe7e7;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .button-submit :hover {
+            background: rgb(88, 218, 200);
+            color: red;
+            border: solid red 10px;
+        }
+
+
+        .button:hover {
+            background-color: #ddd;
+        }
+
+        .social-icons {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0;
+        }
+
+        .social-icons li {
+            display: inline-block;
+            margin: 0 10px;
+        }
+
+        .social-icons a {
+            display: block;
+            width: 30px;
+            height: 30px;
+            background-color: #fff;
+            text-align: center;
+            line-height: 30px;
+            color: #333;
+            border-radius: 50%;
+            transition: background-color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            background-color: #ddd;
+        }
+    </style>
+
+    <script>
+        function showContactPopup() {
+            alert('Thank you for reaching out! We will get back to you soon.');
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            // Smooth scroll for social media links
+            document.querySelectorAll('.social-icons a').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="left">
+            <img class="logo" src="/img/logo.jpg" height="100px" width="100px">
+        </div>
+        <div class="heading">
+            <h1>
+                FREE FIRE LIVE
+            </h1>
+        </div>
+        <div class="button">
+
+
+            <form class="Search-button" action="action_page.php">
+                <input type="text" placeholder="Search.." name="search" style="
+                margin: 5px;
+                height: 15px;
+                width: 60%;
+                border: solid white 5px;
+                border-radius: 10px;">
+
+                <button type="submit" style="
+                height: 30px;
+                width: 80px;
+                  border-radius: 5px;
+                  border: solid white 5px;
+                  background: white;
+                  ">Search</button>
+            </form>
+        </div>
+
+        <div class="right">
+            <li><a href="home.html">HOME</a> </li>
+            <li><a href="sevices.html">SERVICES</a> </li>
+            <li><a href="about.html">ABOUT</a> </li>
+            <li><a href="contact.html">CONTACT</a></li>
+        </div>
+        <div class="login-div-btn">
+            <a href="#" class="login-btn">LogIn</a>
+        </div>
+    </nav>
+
+    <div class="contact" style="margin-left: 20em;">
+        <form action="form-action.php">
+
+            <label for="fname">First Name</label>
+            <input type="text" id="fname" name="firstname" placeholder="Your name..">
+
+            <label for="lname">Last Name</label>
+            <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+
+            <label for="country">Country</label>
+            <select id="country" name="country">
+                <option value="australia">Australia</option>
+                <option value="canada">Canada</option>
+                <option value="usa">USA</option>
+            </select>
+
+            <label for="subject">Subject</label>
+            <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+
+            <input type="submit" value="Submit">
+
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 My Website. All rights reserved.</p>
+        <div>
+            <a href="contact.html" class="button-contact">Contact Us</a>
+            <a href="https://www.youtube.com/channel/UC88yazAuz47y9zkSsW70sZg" class="button-subscribe">Subscribe</a>
+        </div>
+        <ul class="social-icons">
+            <li><a href="#" target="_blank">Facebook</a></li>
+            <li><a href="#" target="_blank">Twitter</a></li>
+            <li><a href="#" target="_blank">Instagram</a></li>
+            <!-- Add more social media icons as needed -->
+        </ul>
+    </footer>
+</body>
+
+</html>

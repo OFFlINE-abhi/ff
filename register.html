@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-image: url("/img/pexels-arshad-sutar-1749303.jpg");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 100vh;
+            margin: 5px;
+            font-family: Arial, sans-serif;
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+
+
+        .register-form {
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 5);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .register-form label {
+            display: block;
+            margin-bottom: 10px;
+            color: #f3cbcb;
+            font-weight: bold;
+            text-align: left;
+        }
+
+        .register-form input[type="email"],
+        .register-form input[type="password"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 20px;
+            font-size: larger;
+            color: rgb(255, 255, 255);
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease;
+            background-color: transparent;
+            /* Make input boxes transparent */
+        }
+
+        .register-form input[type="email"]:focus,
+        .register-form input[type="password"]:focus {
+            border-color: #007bff;
+        }
+
+        .register-form input[type="checkbox"] {
+            margin-right: 5px;
+        }
+
+        .register-form input[type="button"] {
+            background-color: #3a0fd4;
+            color: #fff;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .register-form input[type="button"]:hover {
+            background-color: #582cf6;
+        }
+
+        .register-form a {
+            border: solid rgb(96, 14, 218) 3px;
+            padding: 7px;
+            border-radius: 5px;
+            color: white;
+            text-decoration: none;
+        }
+
+        .register-form a :hover {
+            border: solid rgb(218, 204, 14) 3px;
+            padding: 7px;
+            border-radius: 5px;
+            color: rgb(255, 70, 70);
+            text-decoration: none;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* Adjust the transparency as needed */
+            backdrop-filter: blur(8px);
+            /* Adjust the blur intensity as needed */
+            z-index: -1;
+            /* Place the overlay behind other content */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="overlay"></div>
+    <div class="register">
+        <form action="#" class="register-form">
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" placeholder="Email" required>
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password" placeholder="Password" required>
+            <label for="confirm-password">Confirm Password:</label>
+            <input type="password" name="confirm-password" id="confirm-password" placeholder="Confirm Password" required>
+            <label><input type="checkbox" name="checkbox" id="checkbox" required> I agree to the terms and conditions</label>
+            <input type="button" value="Submit" id="submit-btn">
+            <a href="login.html">Already Have Account</a>
+        </form>
+    </div>
+    <script>
+        document.getElementById('submit-btn').addEventListener('click', function () {
+            // Check if all fields are filled
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+            var confirmPassword = document.getElementById('confirm-password').value;
+            var checkbox = document.getElementById('checkbox').checked;
+
+            if (email === '' || password === '' || confirmPassword === '' || !checkbox) {
+                alert('Please fill in all fields and agree to the terms and conditions.');
+                return;
+            }
+
+            // Check if the user is already registered
+            if (localStorage.getItem('email') === email) {
+                alert('User already exists. Please go to the login page.');
+                window.location.href = 'login.html'; // Redirect to login page
+            } else {
+                // Check if passwords match
+                if (password !== confirmPassword) {
+                    alert('Passwords do not match. Please enter matching passwords.');
+                    return;
+                }
+
+                // Save data to local storage
+                localStorage.setItem('email', email);
+                localStorage.setItem('password', password);
+                localStorage.setItem('confirmPassword', confirmPassword);
+                localStorage.setItem('checkbox', checkbox);
+
+                alert('Registration successful!'); // Inform user about successful registration
+                window.location.href = 'login.html'; // Redirect to login page
+            }
+        });
+    </script>
+</body>
+
+
+</html>
