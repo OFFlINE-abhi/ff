@@ -196,7 +196,7 @@
 
 
         .last-section {
-            background-image: url("/pexels-irina-iriser-1366957.jpg");
+            background-image: url("/ff/pexels-irina-iriser-1366957.jpg");
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
@@ -270,10 +270,6 @@
 
         }
 
-        .login-btn :hover {
-            border: solid white 5px;
-
-        }
 
         input[type=text],
         select,
@@ -312,7 +308,7 @@
             padding: 20px;
             width: 50%;
             margin-left: 12em;
-            margin:5px 50px;
+            margin: 5px 50px;
         }
 
         .button-submit {
@@ -364,26 +360,69 @@
         .social-icons a:hover {
             background-color: #ddd;
         }
-    </style>
 
-    <script>
-        function showContactPopup() {
-            alert('Thank you for reaching out! We will get back to you soon.');
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
         }
 
-        document.addEventListener('DOMContentLoaded', function () {
-            // Smooth scroll for social media links
-            document.querySelectorAll('.social-icons a').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
 
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                });
-            });
-        });
-    </script>
+        h2 {
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .error-msg {
+            color: #ff0000;
+        }
+
+        .success-msg {
+            color: #008000;
+        }
+    </style>
+
+
 
 </head>
 
@@ -391,7 +430,7 @@
 
     <nav class="navbar">
         <div class="left">
-            <img class="logo" src="/ff/logo.jpg" height="100px" width="100px">
+            <img class="logo" src="/img/logo.jpg" height="100px" width="100px">
         </div>
         <div class="heading">
             <h1>
@@ -401,7 +440,7 @@
         <div class="button">
 
 
-            <form class="Search-button" action="action_page.php">
+            <form class="Search-button" action="">
                 <input type="text" placeholder="Search.." name="search" style="
                 margin: 5px;
                 height: 15px;
@@ -409,13 +448,7 @@
                 border: solid white 5px;
                 border-radius: 10px;">
 
-                <button type="submit" style="
-                height: 30px;
-                width: 80px;
-                  border-radius: 5px;
-                  border: solid white 5px;
-                  background: white;
-                  ">Search</button>
+                <button type="submit" >Search</button>
             </form>
         </div>
 
@@ -426,31 +459,32 @@
             <li><a href="contact.html">CONTACT</a></li>
         </div>
         <div class="login-div-btn">
-            <a href="#" class="login-btn">LogIn</a>
+            <a href="login.html" class="login-btn">LogIn</a>
         </div>
     </nav>
 
-    <div class="contact" style="margin-left: 20em;">
-        <form action="form-action.php">
-
-            <label for="fname">First Name</label>
-            <input type="text" id="fname" name="firstname" placeholder="Your name..">
-
-            <label for="lname">Last Name</label>
-            <input type="text" id="lname" name="lastname" placeholder="Your last name..">
-
-            <label for="country">Country</label>
-            <select id="country" name="country">
-                <option value="australia">Australia</option>
-                <option value="canada">Canada</option>
-                <option value="usa">USA</option>
-            </select>
-
-            <label for="subject">Subject</label>
-            <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
-
-            <input type="submit" value="Submit">
-
+    <div class="container">
+        <h2>Contact Us</h2>
+        <form id="contact-form" action="submit_contact.php" method="post">
+            <div class="form-group">
+                <label for="name">Name:</label><br>
+                <input type="text" id="name" name="name" required><br>
+                <small class="error-msg" id="name-error"></small>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email" required><br>
+                <small class="error-msg" id="email-error"></small>
+            </div>
+            <div class="form-group">
+                <label for="message">Message:</label><br>
+                <textarea id="message" name="message" rows="4" required></textarea><br>
+                <small class="error-msg" id="message-error"></small>
+            </div>
+            <div class="form-group">
+                <button type="submit" id="submit-btn">Submit</button>
+                <small class="success-msg" id="success-msg"></small>
+            </div>
         </form>
     </div>
 
@@ -467,6 +501,48 @@
             <!-- Add more social media icons as needed -->
         </ul>
     </footer>
+
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', function (event) {
+            event.preventDefault();
+            var name = document.getElementById('name').value;
+            var email = document.getElementById('email').value;
+            var message = document.getElementById('message').value;
+
+            // Simple form validation
+            var isValid = true;
+            if (!name) {
+                document.getElementById('name-error').textContent = 'Name is required';
+                isValid = false;
+            } else {
+                document.getElementById('name-error').textContent = '';
+            }
+
+            if (!email) {
+                document.getElementById('email-error').textContent = 'Email is required';
+                isValid = false;
+            } else {
+                document.getElementById('email-error').textContent = '';
+            }
+
+            if (!message) {
+                document.getElementById('message-error').textContent = 'Message is required';
+                isValid = false;
+            } else {
+                document.getElementById('message-error').textContent = '';
+            }
+
+            if (isValid) {
+                // Submit the form
+                document.getElementById('success-msg').textContent = 'Message sent successfully!';
+                setTimeout(function () {
+                    document.getElementById('success-msg').textContent = '';
+                }, 3000);
+                this.submit();
+            }
+        });
+
+    </script>
 </body>
 
 </html>
